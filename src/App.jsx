@@ -35,12 +35,12 @@ function App() {
       
     }]
     localStorage.setItem("todos", JSON.stringify(todoArr))
-// <<<<<<< HEAD
+
 //     const todos2 = JSON.parse(localStorage.getItem("todos"))
 //     console.log(todos2)
 //     setTodos([...todos2]);
-// =======
-// >>>>>>> 6fe80991dd8540606588263676b22f729f7a3807
+
+
     setTodos([...todoArr]);
     setTodo("");
 
