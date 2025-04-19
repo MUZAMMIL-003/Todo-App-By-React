@@ -16,7 +16,6 @@ function TodoList({ todos , onDelete, toggleTodo }) {
       }
         </>
     )
-
 }
 
 export default TodoList
