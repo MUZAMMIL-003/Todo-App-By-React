@@ -17,7 +17,6 @@ function TodoList({ todos , onDelete, toggleTodo }) {
         </>
     )
     // im back 
-
 }
 
 export default TodoList
