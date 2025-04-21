@@ -34,7 +34,7 @@ function App() {
       completed: false
       
     }]
-    // localStorage.setItem
+    // localStorage.
     window.localStorage.setItem('todos', JSON.stringify(todoArr))
 
 //     const todos2 = JSON.parse(localStorage.getItem("todos"))
