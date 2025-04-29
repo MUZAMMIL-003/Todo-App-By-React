@@ -32,7 +32,6 @@ function App() {
       id: Date.now(),
       title: todo,
       completed: false
-      
     }]
   
     window.localStorage.setItem('todos', JSON.stringify(todoArr))
