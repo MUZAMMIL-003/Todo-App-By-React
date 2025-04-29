@@ -69,7 +69,6 @@ function App() {
       <TodoList todos={ todos } onDelete={ handleDeleteTodo } toggleTodo={ handleToggleTodo } />
     </div>
 
-
   )
 }
 
