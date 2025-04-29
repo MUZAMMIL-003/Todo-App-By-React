@@ -65,7 +65,6 @@ function App() {
     <div className="mx-auto">
       <h1 className='font-bold text-3xl'> Todo App </h1>
       <AddTodo value={ todo } onChange={( e ) => setTodo( e.target.value )} onClick={ handleAddTodo } />
-
       {/* <div className='flex items-center justify-between my-3'>
         <button className = {`${filter == 'All' ? 'bg-teal-300' : 'bg-teal-200' }`}>All</button>
         <button>Completed</button>
