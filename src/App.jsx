@@ -40,7 +40,6 @@ function App() {
 //     console.log(todos2)
 //     setTodos([...todos2]);
 
-
     setTodos([...todoArr]);
     setTodo("");
 
