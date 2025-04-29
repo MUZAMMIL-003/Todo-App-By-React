@@ -51,7 +51,6 @@ function App() {
     setTodos([...newTodos]);
   }, [todos])
 
-
   const handleToggleTodo = useCallback((id) => {
     const todosArr = [...todos]
     const todoIndx = todosArr.findIndex((todo) => todo.id === id)
