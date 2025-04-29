@@ -57,8 +57,9 @@ function App() {
     setTodos([...todosArr])
   }, [todos])
 
+  
   return (
-    
+
     <div className="mx-auto">
       <h1 className='font-bold text-3xl'> Todo App </h1>
       <AddTodo value={ todo } onChange={( e ) => setTodo( e.target.value )} onClick={ handleAddTodo } />
