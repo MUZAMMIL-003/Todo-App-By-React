@@ -71,7 +71,6 @@ function App() {
         <button>Completed</button>
         <button>Remaining</button>
       </div> */}
-
       <TodoList todos={ todos } onDelete={ handleDeleteTodo } toggleTodo={ handleToggleTodo } />
     </div>
 
