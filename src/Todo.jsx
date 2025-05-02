@@ -5,6 +5,7 @@ import './App.css'
 import AddTodo from './components/AddTodo.jsx'
 import TodoList from './components/Todolist.jsx'
 import { useCallback } from 'react'
+import Navbar from './components/Navbar.jsx'
 
 function Todo() {
   const [todo, setTodo] = useState("")
@@ -51,17 +52,19 @@ function Todo() {
     const newTodos = todos.filter((todo) => todo.id !== id)
     setTodos([...newTodos]);
   }, [todos])
-
+  
   const handleToggleTodo = useCallback((id) => {
     const todosArr = [...todos]
     const todoIndx = todosArr.findIndex((todo) => todo.id === id)
     todosArr[todoIndx].completed = !todosArr[todoIndx].completed
     setTodos([...todosArr])
   }, [todos])
-
+  
   
   return (
-
+    <>
+    <Navbar />
+    
     <div className="mx-auto">
       <h1 className='font-bold text-3xl'> Todo App </h1>
       <AddTodo value={ todo } onChange={( e ) => setTodo( e.target.value )} onClick={ handleAddTodo } />
@@ -72,6 +75,7 @@ function Todo() {
       </div> */}
       <TodoList todos={ todos } onDelete={ handleDeleteTodo } toggleTodo={ handleToggleTodo } />
     </div>
+    </>
   )
 }
 

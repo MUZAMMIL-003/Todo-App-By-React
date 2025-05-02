@@ -1,4 +1,5 @@
 import './App.css'
+import Navbar from './components/Navbar.jsx'
 import Todo from './Todo.jsx'
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
   
   return (
 
-    
+    // <Navbar />
     <Todo />
 
   )
