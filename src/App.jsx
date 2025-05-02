@@ -27,6 +27,8 @@ function App() {
   ]);
 
   const handleAddTodo = useCallback(() => {
+    // if (todo.value == "") {
+    //   alert("Fill The Inputs");
     const todoArr = [...todos,
     {
       id: Date.now(),
@@ -36,9 +38,9 @@ function App() {
   
     window.localStorage.setItem('todos', JSON.stringify(todoArr))
 
-//     const todos2 = JSON.parse(localStorage.getItem("todos"))
-//     console.log(todos2)
-//     setTodos([...todos2]);
+    const todos2 = JSON.parse(localStorage.getItem("todos"))
+    console.log(todos2)
+    setTodos([...todos2]);
 
     setTodos([...todoArr]);
     setTodo("");
