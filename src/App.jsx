@@ -30,7 +30,7 @@ function App() {
     // if (todo.value == "") {
     //   alert("Fill The Inputs");
     const todoArr = [...todos,
-    {
+    { 
       id: Date.now(),
       title: todo,
       completed: false
