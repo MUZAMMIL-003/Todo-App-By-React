@@ -1,16 +1,13 @@
 
-const usersData = () => {
-    fetch('https://dummyjson.com/users')
+const getUsers = async () => {
+  try {
+    const data = await fetch('https://dummyjson.com/users')
     .then(res => res.json())
-    .then(data => {
-      console.log(data); // Optional: for debugging
-      if (callback && typeof callback === 'function') {
-        callback(data);
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching users:', error);
-    });
-}
+    
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-export default usersData
+export default getUsers;
