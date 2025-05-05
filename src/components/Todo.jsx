@@ -10,14 +10,12 @@ const Todo = ({
   handleToggleTodo,
 }) => {
   return (
-    <div
-      className={`h-[100vh] flex justify-center items-center ${
-        theme === "dark" ? "bg-gray-700" : "bg-white"
-      }`}
-    >
-      <div className={`max-w-md mx-auto mt-10 p-4 border rounded-md shadow-md ${
-        theme === "dark" ? "border-2 border-white" : "border-2 border-black"
-      }`}>
+    <div className={`h-[80vh] flex justify-center items-center`}>
+      <div
+        className={`max-w-md mx-auto mt-10 p-4 border rounded-md shadow-md ${
+          theme === "dark" ? "border-2 border-white" : "border-2 border-black"
+        }`}
+      >
         <h1
           className={`text-3xl font-bold text-center mb-4 ${
             theme === "dark" ? "text-white" : "text-black"
