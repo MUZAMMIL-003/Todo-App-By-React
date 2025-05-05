@@ -1,21 +1,42 @@
-import React from "react";
+import { Link } from "react-router";
 
-function Navbar({ handleTheme }) {
+function Navbar({ theme, handleTheme }) {
   return (
     <header className="text-gray-600 body-font">
-      <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <div
+        className={`container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ${
+          theme === "dark" ? "bg-[#242526]" : "bg-[#DF3805]"
+        }`}
+      >
         <span className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPvedP5ZPv27C6WR2iZTY2A8n3sVRtVpfvyWqDpFf-RSa0oLmVLAk-BCbFbPuDrCm04GY&usqp=CAU"
             alt="Logo"
             className="w-10 h-10 rounded-full mr-2"
           />
-          <span className="ml-3 text-xl">TODO-React</span>
-          
+          <span className={`ml-3 text-2xl text-white font-extrabold`}>
+            TODO-React
+          </span>
         </span>
         <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <a className="mr-5 hover:text-gray-900">First Link</a>
-          <a className="mr-5 hover:text-gray-900">Second Link</a>
+          <Link
+            to={"/"}
+            className={`mr-5 hover:text-blue-500 hover:underline cursor-pointer font-bold text-white`}
+          >
+            Home
+          </Link>
+          <Link
+            to={"/todo"}
+            className={`mr-5 hover:text-blue-500 hover:underline cursor-pointer font-bold text-white`}
+          >
+            Todo
+          </Link>
+          <Link
+            to={"/users"}
+            className={`mr-5 hover:text-blue-500 hover:underline cursor-pointer font-bold text-white`}
+          >
+            Users
+          </Link>
         </nav>
         <label className="inline-flex items-center cursor-pointer">
           <input

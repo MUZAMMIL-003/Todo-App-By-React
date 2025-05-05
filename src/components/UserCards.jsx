@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const UserCards = ({ users, theme }) => {
   return (
     <section>
@@ -5,11 +7,12 @@ const UserCards = ({ users, theme }) => {
         <div className="flex flex-wrap -m-4">
           {users.map((item) => (
             <div key={item?.id} className="xl:w-1/4 md:w-1/2 p-4">
-              <div
+              <Link
+                to={`/users/${item?.id}`}
                 className={`p-6 rounded-lg border-2 ${
-                  theme === 'dark'
-                    ? 'bg-gray-700 border-white'
-                    : 'bg-gray-700 border-black'
+                  theme === "dark"
+                    ? "bg-gray-700 border-white"
+                    : "bg-gray-700 border-black"
                 }`}
               >
                 <img
@@ -23,7 +26,7 @@ const UserCards = ({ users, theme }) => {
                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">
                   {item.company.name}
                 </h2>
-              </div>
+              </Link>
             </div>
           ))}
         </div>
