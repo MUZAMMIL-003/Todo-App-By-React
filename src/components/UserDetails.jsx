@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import getUsers from "./Users";
 import { useParams } from "react-router";
+import { ThemeContext } from "../Context/ThemeContext";
 
-const UserDetails = ({ theme }) => {
+const UserDetails = () => {
   const { id } = useParams();
+
+  const { webTheme, setWebTheme } = useContext(ThemeContext);
 
   const [allUser, setAllUser] = useState([]);
   const usersDetails = async () => {
@@ -22,12 +25,12 @@ const UserDetails = ({ theme }) => {
     return (
       <div
         className={`h-[80vh] flex items-center justify-center ${
-          theme === "dark" ? "bg-gray-700" : "bg-white"
+          webTheme === "dark" ? "bg-gray-700" : "bg-white"
         }`}
       >
         <p
           className={`text-xl font-semibold ${
-            theme === "dark" ? "text-white" : "text-black"
+            webTheme === "dark" ? "text-white" : "text-black"
           }`}
         >
           User not found
@@ -36,33 +39,26 @@ const UserDetails = ({ theme }) => {
     );
   }
 
-  const {
-    image,
-    firstName,
-    lastName,
-    email,
-    username,
-    phone,
-    company,
-  } = userDetail;
+  const { image, firstName, lastName, email, username, phone, company } =
+    userDetail;
 
   const { department, title } = company;
   return (
     <div
       className={`h-[80vh] flex items-center justify-center ${
-        theme === "dark" ? "bg-gray-700" : "bg-white"
+        webTheme === "dark" ? "bg-gray-700" : "bg-white"
       }`}
     >
       <div
         className={`border-4 p-5 max-w-xs text-center rounded-md ${
-          theme === "dark"
+          webTheme === "dark"
             ? "border-white shadow-lg shadow-gray-300/40"
             : "border-black shadow-lg shadow-gray-700/40"
         }`}
       >
         <h2
           className={`text-lg font-semibold mb-4 ${
-            theme === "dark" ? "text-white" : "text-black"
+            webTheme === "dark" ? "text-white" : "text-black"
           }`}
         >
           User Details
@@ -74,7 +70,7 @@ const UserDetails = ({ theme }) => {
         />
         <ul
           className={`list-none p-0 space-y-2 ${
-            theme === "dark" ? "text-white" : "text-black"
+            webTheme === "dark" ? "text-white" : "text-black"
           }`}
         >
           <li>

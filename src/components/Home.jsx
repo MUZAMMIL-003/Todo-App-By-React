@@ -1,6 +1,12 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { ThemeContext } from "../Context/ThemeContext";
 
-const Home = ({ theme }) => {
+const Home = () => {
+
+  const {webTheme, setWebTheme} = useContext(ThemeContext);
+  // console.log("webTheme Home Page", webTheme);
+
   return (
     <section className="text-gray-600 body-font">
       <div className="container mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
@@ -13,7 +19,7 @@ const Home = ({ theme }) => {
         </div>
         <div
           className={`lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center ${
-            theme === "dark" ? "text-white" : "text-[#242526]"
+            webTheme == "dark" ? "text-white" : "text-[#242526]"
           }`}
         >
           <p className="mb-8 leading-relaxed">

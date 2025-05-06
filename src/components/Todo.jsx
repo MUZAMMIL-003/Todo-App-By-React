@@ -1,7 +1,7 @@
-import React from "react";
+import { useContext } from "react";
+import { ThemeContext } from "../Context/ThemeContext";
 
 const Todo = ({
-  theme,
   todo,
   todos,
   setTodo,
@@ -9,16 +9,19 @@ const Todo = ({
   handleDeleteTodo,
   handleToggleTodo,
 }) => {
+  const { webTheme, setWebTheme } = useContext(ThemeContext);
+  console.log("Web Theme in Todo =>", webTheme);
+
   return (
     <div className={`h-[80vh] flex justify-center items-center`}>
       <div
         className={`max-w-md mx-auto mt-10 p-4 border rounded-md shadow-md ${
-          theme === "dark" ? "border-2 border-white" : "border-2 border-black"
+          webTheme === "dark" ? "border-2 border-white" : "border-2 border-black"
         }`}
       >
         <h1
           className={`text-3xl font-bold text-center mb-4 ${
-            theme === "dark" ? "text-white" : "text-black"
+            webTheme === "dark" ? "text-white" : "text-black"
           }`}
         >
           Todo App
@@ -49,7 +52,7 @@ const Todo = ({
           <div
             key={t.id}
             className={`flex items-center justify-between mb-2 p-2 border rounded-md ${
-              theme === "dark" ? "bg-white text-black" : "bg-gray-400"
+              webTheme === "dark" ? "bg-white text-black" : "bg-gray-400"
             }`}
           >
             <h2
