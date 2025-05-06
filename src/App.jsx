@@ -57,9 +57,8 @@ function App() {
 
   return (
     <div
-      className={`h-[100vh] ${
-        webTheme === "dark" ? "bg-gray-700" : "bg-white"
-      }`}
+      className={`h-[100vh] ${webTheme === "dark" ? "bg-gray-700" : "bg-white"
+        }`}
     >
       <Navbar />
 
