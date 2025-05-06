@@ -12,7 +12,6 @@ import { ThemeContext } from "./Context/ThemeContext.jsx";
 function App() {
   const { webTheme, setWebTheme } = useContext(ThemeContext);
   const [users, setUsers] = useState([]);
-  const [theme, setTheme] = useState("light");
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([
     { id: 1, title: "Todo 1", completed: false },
