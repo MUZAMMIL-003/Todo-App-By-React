@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { ThemeContext } from "../Context/ThemeContext";
 
-const UserCards = ({ users, theme }) => {
+const UserCards = ({ users}) => {
+  const { webTheme, setWebTheme } = useContext(ThemeContext);
+
   return (
     <section>
       <div className="container px-5 py-24 mx-auto">
@@ -10,7 +14,7 @@ const UserCards = ({ users, theme }) => {
               <Link
                 to={`/users/${item?.id}`}
                 className={`p-6 rounded-lg border-2 ${
-                  theme === "dark"
+                  webTheme === "dark"
                     ? "bg-gray-700 border-white"
                     : "bg-gray-700 border-black"
                 }`}

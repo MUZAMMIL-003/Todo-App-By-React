@@ -1,11 +1,18 @@
+import { useContext } from "react";
 import { Link } from "react-router";
+import { ThemeContext } from "../Context/ThemeContext";
 
-function Navbar({ theme, handleTheme }) {
+function Navbar() {
+  const { webTheme, setWebTheme } = useContext(ThemeContext);
+  const handleTheme = (e) => {
+    setWebTheme(e.target.checked ? "dark" : "light");
+  };
+
   return (
     <header className="text-gray-600 body-font">
       <div
         className={`container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center ${
-          theme === "dark" ? "bg-[#242526]" : "bg-[#DF3805]"
+          webTheme === "dark" ? "bg-[#242526]" : "bg-[#DF3805]"
         }`}
       >
         <span className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">

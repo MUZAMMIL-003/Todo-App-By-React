@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useContext } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router";
 import Navbar from "./components/Navbar.jsx";
@@ -7,8 +7,10 @@ import getUsers from "./components/Users.js";
 import UserCards from "./components/UserCards.jsx";
 import Home from "./components/Home.jsx";
 import UserDetails from "./components/UserDetails.jsx";
+import { ThemeContext } from "./Context/ThemeContext.jsx";
 
 function App() {
+  const { webTheme, setWebTheme } = useContext(ThemeContext);
   const [users, setUsers] = useState([]);
   const [theme, setTheme] = useState("light");
   const [todo, setTodo] = useState("");
@@ -17,9 +19,6 @@ function App() {
     { id: 2, title: "Todo 2", completed: false },
     { id: 3, title: "Todo 3", completed: false },
   ]);
-  const handleTheme = (e) => {
-    setTheme(e.target.checked ? "dark" : "light");
-  };
   const handleAddTodo = useCallback(() => {
     if (todo.trim() === "") return;
 
@@ -49,29 +48,28 @@ function App() {
     },
     [todos]
   );
-
   const fetchData = async () => {
     const data = await getUsers();
     setUsers([...data.users]);
   };
-
   useEffect(() => {
     fetchData();
   }, []);
 
   return (
     <div
-      className={`h-[100vh] ${theme === "dark" ? "bg-gray-700" : "bg-white"}`}
+      className={`h-[100vh] ${
+        webTheme === "dark" ? "bg-gray-700" : "bg-white"
+      }`}
     >
-      <Navbar theme={theme} handleTheme={handleTheme} />
+      <Navbar />
 
       <Routes>
-        <Route path="/" element={<Home theme={theme} />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/todo"
           element={
             <Todo
-              theme={theme}
               todo={todo}
               todos={todos}
               setTodo={setTodo}
@@ -83,8 +81,8 @@ function App() {
         />
 
         <Route path="/users">
-          <Route index element={<UserCards users={users} theme={theme} />} />
-          <Route path=":id" element={<UserDetails theme={theme} />} />
+          <Route index element={<UserCards users={users} />} />
+          <Route path=":id" element={<UserDetails />} />
         </Route>
       </Routes>
     </div>
